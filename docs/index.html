@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photonae Media</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Trebuchet MS', sans-serif;
+        height: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    h1 {
+        color: aqua, ;
+        text-shadow: 2px 2px 4px #FFE000;
+        font-size: 4rem;
+        font-weight: bold;
+        color: transparent;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 20%,rgba(255, 255, 255, 1) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-size: 200% 100%;
+        background-position: -100% 0;
+        animation: reveal 5s linear infinite;
+    }
+
+    h2 {
+        color: aqua;
+        text-shadow: 2px 2px 4px #FFE000;
+    }
+
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: -1; /* Behind content */
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        gap: 20px;
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        background: rgba(0,0,0,0.5);
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    nav a:hover {
+        background: rgba(255,255,255,0.3);
+    }
+
+    /* Sections wrapper for horizontal sliding */
+    #sections-wrapper {
+        display: flex;
+        transition: transform 1s ease;
+        pointer-events: none;
+        width: 500vw; /* 5 sections */
+    }
+
+    .section-content {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        color: white;
+        font-size: 1.2em;
+        text-shadow: 0 0 10px rgba(0,0,0,0.7);
+        flex-shrink: 0;
+        pointer-events: auto;
+        padding: 50px 20px;
+        padding-top: 100px;
+        box-sizing: border-box;
+    }
+
+    .content-wrapper {
+        background: rgba(0,0,0,0.5);
+        padding: 100px;
+        border-radius: 10px;
+        max-width: 1000px;
+        text-align: center;
+
+        /* Animation */
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .content-wrapper.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .content-wrapper img, .content-wrapper video {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    .content-wrapper form input, 
+    .content-wrapper form textarea, 
+    .content-wrapper form button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1em;
+    }
+
+    .content-wrapper form button {
+        background: #4c66af;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Parent container */
+  .two-column {
+    display: flex;         /* makes children sit side by side */
+    gap: 20px;             /* space between the two divs */
+  }
+
+  /* Each div */
+  .box {
+    flex: 1;               /* makes both boxes equal width */
+    background: #4c66af;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  @keyframes reveal {
+                from {
+                    background-position: 100% 0;
+                }
+                to {
+                    background-position: -100% 0;
+                }
+            }
+</style>
+</head>
+<body oncontextmenu="return false">
+
+<!-- Navigation -->
+<nav>
+    <a href="#home" data-target="0">Home</a>
+    <!--<a href="#about" data-target="1">About</a>-->
+    <a href="#products" data-target="2" style="color: aqua; text-shadow: 2px 2px 4px #FFE000;">Products</a>
+    <a href="#services" data-target="3">Services</a>
+    <a href="#contact" data-target="4" style="color: aqua; text-shadow: 2px 2px 4px #FFE000;">Contact Us</a>
+</nav>
+
+<!-- Sections wrapper -->
+<div id="sections-wrapper">
+    <!-- Home Section -->
+    <div id="home" class="section-content">
+        <div class="content-wrapper">
+            <img src="Logo-1.1.png" alt="Home Image">
+            <p>At Photonae Media, we focus on and specialize in <strong>3D modeling</strong>, <strong>animation</strong>, and <strong>visual effects</strong>.</p>
+            <p>Creating that final edit for a commercial or social media ad can be very challenging when you don't have the right tools and workflow.</p>
+            <p>And so, employing a fresh approach utilizing state-of-the-art 3D modeling, rendering and animation software is how we deliver insurmountable quality with every render or design.</p>
+            <p>Every pixel we craft is built with passion, purpose, and a touch of start-up fire.</p>
+            <video style="border-top: 10px;" width="600" height="400" autoplay loop>
+                <source src="video6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <h1>Our Products</h1>
+            <p>We provide tools to assist you the 3D modeler to create more realistic looking scenes and objects. Our <strong>image processing</strong> software is available for download <strong>free of charge</strong> and currently runs on <strong>Windows</strong> only.</p>
+            <p>We also provide a Blender 3D add-on free of charge that allows one to export a scene and render it to the web.</p>
+            <p>You can find out more about this on our products <a href="#products" data-target="2">Products</a> page.</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section-content">
+        <div class="content-wrapper">
+            <h1>About Us</h1>
+            <p>We are passionate about creating interactive 3D experiences using Babylon.js and modern web technologies.</p>
+            <img src="https://via.placeholder.com/400x250" alt="Team Image">
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div id="products" class="section-content">
+        <div class="content-wrapper">
+            <h1>Our Products</h1>
+            <div class="two-column">
+                <div class="box">
+                    <h2>Norma™ - The Normal map creator</h2>
+                    <p>Norma™, the normal map creator desktop app for Windows allows anyone to quickly and easily create a normal map using any image. This allows the 3D designer and/or modeler to create highly realistic textures for their 3D models.<br>It is intended to save you countless hours of work, trying to model the perfect mesh and at the same time<br>preserve your system resources.</p>
+                    <p>To find out how to use the application, check out our<br><a href="./howto1.html">Norma™ How-to-guide</a></p>
+                    <img src="Logo-1.2.png" alt="Product Image">
+                    <br>
+                    <p>Click <a href="#">Here</a> to download the Normal map creator™ for Windows.</p>
+                </div>
+                <div class="box">
+                    <h2>3D2Web™</h2>
+                    <p>Ever thought of rendering your 3D model to the web? Well now you can! Using our 3D2Web app for Windows 10+, can you rapidly export your 3D model from your preferred 3d modeling software and host it on the web. The app does not require installation and can be run from the directory you download it into.</p>
+                    <p>To find out how to use the app, check out our tutorial : <br><a href="#">3D2Web™ How-to-guide</a></p>
+                    <img src="B2W-Logo1.1.png" alt="Product Image">
+                    <p>Click <a href="#">Here</a> to download the .zip file containing the app and it's dependencies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="section-content">
+        <div class="content-wrapper">
+            <h1>Services</h1>
+            <h2>3D Modeling</h2>
+            <p>We mainly focus on 3D modeling and animation. Our 3D modeling services covers object modeling for scenes as well as parametric design for signage and cnc routing.</p>
+            <video width="600" height="400" autoplay loop>
+                <source src="video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>Animation</h2>
+            <p>We aslo do animation of 3D objects and can process an entire scene based on your requirement.</p>
+            <video width="600" height="400" autoplay loop muted>
+                <source src="video4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>VFX</h2>
+            <p>Our vfx services introduces the aspect of overlaying the 3D world with the real world. This allows us to create highly immersive experiences.</p>
+            <video width="600" height="400" autoplay loop>
+                <source src="video5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section-content">
+        <div class="content-wrapper">
+            <h1>Contact Us</h1>
+            <p>Reach out to us for any inquiries or projects.</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Babylon.js Canvas -->
+<canvas id="renderCanvas"></canvas>
+<script src="src/babylon.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
